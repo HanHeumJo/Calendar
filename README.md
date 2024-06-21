@@ -1,9 +1,43 @@
-# FullCalendar 모듈 설치
-npm install --save @fullcalendar/react @fullcalendar/core @fullcalendar/daygrid
+# 깃허브 주소
 
-npm install style-loader css-loader sass-loader node-sass --save
+https://github.com/HanHeumJo/Calendar/tree/master
 
-npm install @fullcalendar/core @fullcalendar/daygrid
+# 리액트 모듈 설치
+npm i
 
-# 리액트 라우터
-npm i react-router-dom
+# App.js
+
+가계부의 메인페이지이다.
+
+AccountBookForm 컴포넌트를 호출하여 지출 및 수입을 정하여 금액을 입력하고, 사용목적을 작성하여 추가하면
+
+아래 리스트에 내역이 추가된다. 검색기능은 사용목적을 필터링하여 보여준다.
+
+# AccountBookForm.js
+
+가계부를 작성하는 컴포넌트이다. 지출 및 수입을 선택하고, 금액과 사용처를 기입하여 추가하는 기능이다.
+
+추가를 하게되면 현재날짜를 반환하여 언제 지출 및 사용했는지 리스트에서 확인이 가능하다.
+
+state는 유저의 데이터를 저장하는 배열이다.
+
+changeInput는 input태그에 정보가 입력되면 이벤트가 발생하게 처리한다.
+
+submit는 input태그에 입력된 정보를 배열에 데이터를 setState를 통해 추가하여준다.
+
+# AccountBookInfo.js
+
+입력한 내용들의 수정 및 삭제하는 기능맡은 컴포넌트이다.
+
+toCommaString 입력한 금액(문자열)을 천단위로 반환하여 준다.
+
+수정버튼 클릭시 수정이 가능한 input태그가 나타나며 수정하고 싶은내용 작성하고, 수정버튼 클릭시 수정된 내용을 리스트에서 보여준다.
+
+기본적으로 수정버튼 클릭시 기본값을 보여주는게 아닌, 기존에 작성된 내용을 보여준다.
+
+
+# AccountBookInfoList
+
+입력한 내용을 보여주는 컴포넌트 이다.
+
+입력한 내용은 다음 배열의 인덱스를 가리켜서 기존내용 덮어써지는게 아닌 새로운 내용이 추가된다.

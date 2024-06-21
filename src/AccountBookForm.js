@@ -7,13 +7,7 @@ const CurrentTime = () => {
 };
 
 class AccountBookForm extends Component {
-  // error 방지를 위한 기본 값 설정
-  static defaultProps = {
-    onAdd: () => {
-      console.log("에러발생");
-    }
-  };
-
+ 
   state = {
     type: "지출",
     price: "",

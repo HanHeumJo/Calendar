@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import './AccountBookInfo.css'
 
 // 현재시간을 특정 format의 문자열로 반환
-const getCurrentTimetoString = () => {
-  return new Date().toLocaleString();
+const CurrentTime = () => {
+  return new Date().toLocaleDateString();
 };
 
-// 천 단위 구분기호를 포함한 문자열을 반환(정규식 이용)
+// 천 단위 구분기호를 포함한 문자열을 반환
 const toCommaString = num => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
@@ -20,7 +20,7 @@ class AccountBookInfo extends Component {
       usage: "-",
       date: "-"
     },
-    onUpdate: () => console.warn("onUpdate is not defined.")
+    onUpdate: () => console.warn("에러발생")
   };
 
   // 수정을 할 때, 기존의 내용이 변하므로 state를 정의
@@ -37,7 +37,7 @@ class AccountBookInfo extends Component {
     onRemove(data.id);
   };
 
-  // 수정/적용 버튼의 토글 기능
+  // 수정 및 적용 기능
   toggleEdit = () => {
     const { editing } = this.state;
     this.setState({
@@ -50,7 +50,7 @@ class AccountBookInfo extends Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
-      date: getCurrentTimetoString()
+      date: CurrentTime()
     });
   };
 
@@ -91,10 +91,9 @@ class AccountBookInfo extends Component {
   }
 
   render() {
-    //수정버튼 클릭시
     const { editing } = this.state;
 
-    // 수정
+    // 수정버튼
     if (editing) {
       return (
         <div className="AcinfoUpdate">
